@@ -12,6 +12,10 @@ app.use(cors()) // allow cross-origin resource sharing
 app.use(express.json()) // decode JSON-formatted incoming POST data
 app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
 
+// host about us image statically
+const path = require('path');
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 // connect to database
 mongoose
   .connect(`${process.env.DB_CONNECTION_STRING}`)
@@ -76,6 +80,14 @@ app.post('/messages/save', async (req, res) => {
       status: 'failed to save the message to the database',
     })
   }
+})
+// a route for the about us page
+app.get('/about', (req, res) => {
+  res.json({
+    name: "Ethan Arnold",
+    bio: "I'm a Computer Science student at NYU with a Chemistry minor, passionate about climbing, RNA biology, and building cool apps.",
+    photoUrl: "http://localhost:3000/images/anime-boy-smoking.gif"
+  })
 })
 
 // export the express app we created to make it available to other modules
