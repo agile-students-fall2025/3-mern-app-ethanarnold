@@ -1,0 +1,42 @@
+.about-section {
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about-name {
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.about-bio {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.about-photo {
+  max-width: 400px;
+  border-radius: 10px;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
